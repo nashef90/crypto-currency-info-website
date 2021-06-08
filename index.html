@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto currency info</title>
+    <link rel="shortcut icon" href="assets/icons/icon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/styles.css">
+
+    <script src="js/jquery-3.6.0.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+    <script src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
+    <script src="js/parally.min.js"></script>
+    <script src="js/storage-helper.js"></script>
+    <script src="js/main.js"></script>
+</head>
+
+<body>
+    <header>
+        <!-- Nav bar -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="#">
+                <img src="assets/images/icon.png"> Crypto currency info</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav" id="nav-bar-links"> </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <!-- end nav bar -->
+        <div id="page-title">Home</div>
+
+        <!-- Page containers -->
+        <section class="page-container" id="home-page">
+            <!-- Parallax image -->
+            <div id="parallax-image"></div>
+            <!-- End parallax image -->
+            <section id="search-section">
+                <input class="form-control mr-sm-2" id="search-txt" type="search" placeholder="Please enter a coin code and then press enter" aria-label="Search" onkeyup="searchCoin(event)">
+            </section>
+            <section id="currency-container"></section>
+
+            <!-- Modal -->
+            <div class="modal fade in" id="selectReportCurrencyModal" data-new-currency-id="" data-new-currency-symbol="" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" data-keyboard="false" data-backdrop="static">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">Crypto currency report list</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        </div>
+                        <div class="modal-body">
+                            <p>You can only choose 5 coins!<br>If you wish to exchange, please delete at least one of the following five currencies:</p>
+                            <table>
+                                <tr>
+                                    <td>coin1</td>
+                                    <td>
+                                        <div class="custom-control custom-switch">
+                                            <input type="checkbox" class="custom-control-input add-to-report-checkbox" id="cb-01coin-modal" data-currency-id="01coin">
+                                            <label class="custom-control-label" for="cb-01coin-modal"></label>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>coin2</td>
+                                    <td>
+                                        <div class="custom-control custom-switch">
+                                            <input type="checkbox" class="custom-control-input add-to-report-checkbox" id="cb-02coin-modal" data-currency-id="01coin">
+                                            <label class="custom-control-label" for="cb-02coin-modal"></label>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" onclick="modalSave()">Save</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="page-container" id="real-time-page"></section>
+
+        <section class="page-container" id="about-page">
+            <div class="my-profile">
+                <img src="./assets/images/NashefM1.jpg" />
+                <label>Mahmoud Nashef</label>
+            </div>
+            <div class="social-media-container">
+                <a class="social-media" target="_blank" href="https://wa.me/+972524326011?text=Message%20from%20%22Crypto%20currency%20info%22%20website">
+                    <img src="./assets/images/social-media-icons/WhatsApp.png" title="WhatsApp">
+                </a>
+                <a class="social-media" target="_blank" href="mailto:nashef90@gmail.com">
+                    <img src="./assets/images/social-media-icons/Email.png" title="Email">
+                </a>
+                <a class="social-media" target="_blank" href="https://www.facebook.com/Nashef90/">
+                    <img src="./assets/images/social-media-icons/Facebook.png" title="Facebook">
+                </a>
+
+                <a class="social-media" target="_blank" href="https://www.instagram.com/nashef90/">
+                    <img src="./assets/images/social-media-icons/Instagram.png" title="Instagram">
+                </a>
+                <a class="social-media" target="_blank" href="https://www.linkedin.com/in/mahmoud-nashef-30b96897/">
+                    <img src="./assets/images/social-media-icons/Linked_In.png" title="Linked In">
+                </a>
+                <a class="social-media" target="_blank" href="https://twitter.com/nashef90">
+                    <img src="./assets/images/social-media-icons/Twitter.png" title="Twitter">
+                </a>
+            </div>
+            <div class="about-project-info">
+                Learning is a never-ending journey and in this journey, I'm at the stage of learning Fullstack 🎓
+                <br /> Presenting for you my Cryptonite project,
+                <br /> a website that shows in real-time the currency value of our coin.
+            </div>
+        </section>
+        <!-- End page containers -->
+    </main>
+    <footer>
+        <p>Powered by: Mahmoud Nashef</p>
+    </footer>
+</body>
+
+</html>
