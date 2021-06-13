@@ -1,4 +1,4 @@
-# crypto-currency-info-website
+# crypto-currency-info-website ([Live demo](https://nashef90.github.io/crypto-currency-info-website/))
 Learning is a never-ending journey and in this journey, I'm at the stage of learning Fullstack 🎓
 
 Presenting for you my Cryptonite project,
